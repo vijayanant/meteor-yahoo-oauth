@@ -52,8 +52,7 @@ var getTokens = function (query) {
         code: query.code,
         client_id: config.clientId,
         client_secret: OAuth.openSecret(config.secret),
-        // redirect_uri: OAuth._redirectUri('yahoo', config),
-        redirect_uri: 'http://myapp.com:3000/_oauth/yahoo/close',
+        redirect_uri: OAuth._redirectUri('yahoo', config),
         grant_type: 'authorization_code'
       }});
   } catch (err) {
@@ -68,14 +67,14 @@ var getTokens = function (query) {
       accessToken: response.data.access_token,
       refreshToken: response.data.refresh_token,
       expiresIn: response.data.expires_in,
-      idToken: response.data.id_token
+      idToken: response.data.id_token,
+      guid: response.data.xoauth_yahoo_guid,
     };
   }
 };
 
 var getIdentity = function (accessToken) {
-    // which is the YAhoo API for vthis?
-    return {};
+    return {}
   // try {
   //   return HTTP.get(
   //     "https://www.googleapis.com/oauth2/v1/userinfo",

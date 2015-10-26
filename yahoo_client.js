@@ -62,11 +62,10 @@ Yahoo.requestCredential = function (options, credentialRequestCompleteCallback) 
   _.extend(loginUrlParameters, {
     "response_type": "code",
     "client_id":  config.clientId,
-    // "scope": scope.join(' '), // space delimited
-    // "redirect_uri": OAuth._redirectUri('yahoo', config),
-    redirect_uri: 'http://myapp.com:3000/_oauth/yahoo/close',
+    "redirect_uri": OAuth._redirectUri('yahoo', config),
     "state": OAuth._stateParam(loginStyle, credentialToken, options.redirectUrl)
   });
+  
   var loginUrl = 'https://api.login.yahoo.com/oauth2/request_auth?' +
     _.map(loginUrlParameters, function(value, param){
       return encodeURIComponent(param) + '=' + encodeURIComponent(value);
