@@ -6,9 +6,10 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
-  api.use('oauth2', ['client', 'server']);
-  api.use('oauth', ['client', 'server']);
-  api.use('http', ['server']);
+  api.versionsFrom("1.0.1");
+  api.use('oauth2@1.1.3', ['client', 'server']);
+  api.use('oauth@1.1.4', ['client', 'server']);
+  api.use('http@1.1.0', ['server']);
   api.use(['underscore', 'service-configuration'], ['client', 'server']);
   api.use(['random', 'templating'], 'client');
 
