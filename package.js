@@ -1,7 +1,7 @@
 Package.describe({
   name: 'vijayanant:meteor-yahoo-oauth',
   summary: "Yahoo OAuth flow",
-  version: "1.0.2",
+  version: "1.0.3",
   git: 'https://github.com/vijayanant/meteor-yahoo-oauth'
 });
 
