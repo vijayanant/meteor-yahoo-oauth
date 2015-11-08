@@ -8,7 +8,8 @@ Yahoo.whitelistedFields = ['id', 'email', 'verified_email', 'name', 'given_name'
 OAuth.registerService('yahoo', 2, null, function(query) {
 
   var response = getTokens(query);
-  var expiresAt = (+new Date) + (1000 * parseInt(response.expiresIn, 10));
+  //Yahoo doesn't have a seperate 'revoke access' API. Limiting the validity of the token here 
+  var expiresAt = (+new Date) + (1 * parseInt(response.expiresIn, 10));
   var accessToken = response.accessToken;
   var idToken = response.idToken;
   var scopes = getScopes(accessToken);
